@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Kofy</string>
+    <string name="shuffle_button">Aleatório</string>
+    <string name="favourites_button">Curtidas</string>
+    <string name="playlist_button">Playlist</string>
+    <string name="search_button">Buscar</string>
+    <string name="total_songs">Músicas totais</string>
+    <string name="world_of_music">Kofy</string>
+    <string name="song_name">nome da música</string>
+    <string name="back_btn">Voltar</string>
+    <string name="start_tv">00:00</string>
+    <string name="end_tv">Loading...</string>
+</resources>
