@@ -12,13 +12,6 @@ Este trabalho propõe o desenvolvimento de um aplicativo para dispositivos Andro
 - **Android Studio**
 - **Java/Kotlin**
 
-## Como Contribuir
-1. Faça um fork deste repositório.
-2. Crie um branch para a sua feature (`git checkout -b feature/nome-da-feature`).
-3. Commit suas alterações (`git commit -m 'Adiciona nova feature'`).
-4. Faça o push para o branch (`git push origin feature/nome-da-feature`).
-5. Abra um Pull Request.
-
 ## Licença
 Este projeto está licenciado sob a Licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
