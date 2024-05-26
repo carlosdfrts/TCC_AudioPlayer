@@ -23,4 +23,4 @@ Este trabalho propõe o desenvolvimento de um aplicativo para dispositivos Andro
 Este projeto está licenciado sob a Licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
 ## Contato
-Para mais informações, entre em contato com [Carlos Daniel](mailto:carlosfrts6@gmail.com).
+Para mais informações, entre em contato com [Carlos](mailto:carlosfrts6@gmail.com).
