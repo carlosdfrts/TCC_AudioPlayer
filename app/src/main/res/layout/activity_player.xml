@@ -7,14 +7,16 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".PlayerActivity">
-
+    tools:context=".PlayerActivity"
+    android:background="@color/white">
+    <!-- Primeira linha -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:orientation="horizontal">
-
+        android:orientation="horizontal"
+        android:layout_weight="1">
+        <!-- Botão de voltar -->
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -23,7 +25,7 @@
             android:background="@android:color/transparent"
             android:contentDescription="@string/back_btn"
             android:src="@drawable/back_icon" />
-
+        <!-- Nome do app -->
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -33,8 +35,10 @@
             android:gravity="center"
             android:text="@string/world_of_music"
             android:textColor="@color/black"
-            android:textSize="20sp" />
-
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:ignore="NestedWeights" />
+        <!-- Botão de favorito -->
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -47,30 +51,36 @@
             app:tint="@android:color/holo_red_dark" />
 
     </LinearLayout>
-
+    <!-- Imagem do app/música -->
     <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/songImgPA"
         android:layout_width="250dp"
         android:layout_height="250dp"
         android:layout_margin="10dp"
-        android:src="@mipmap/music_player_icon" />
-
+        android:src="@mipmap/music_player_icon"
+        android:layout_weight="1"/>
+    <!-- Nome da música -->
     <TextView
+        android:id="@+id/songNamePA"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
         android:text="@string/song_name"
         android:textAlignment="center"
         android:textColor="@color/black"
-        android:textSize="18sp" />
-
+        android:textSize="18sp"
+        android:layout_weight="1"
+        android:gravity="center"/>
+    <!-- Segunda linha -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_margin="10dp"
         android:gravity="center"
         android:orientation="horizontal">
-
+        <!-- Botão de anterior -->
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/previousBtnPA"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:icon="@drawable/previous_icon"
@@ -79,17 +89,19 @@
             android:backgroundTint="@color/white"
             app:shapeAppearanceOverlay="@style/curved"
             app:strokeColor="@color/cool_blue" />
-
+        <!-- Botão de pause -->
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/playPausePA"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="25dp"
+            android:backgroundTint="@color/white"
             app:icon="@drawable/pause_icon"
             app:iconSize="40dp"
-            app:iconTint="@android:color/black"
-            android:backgroundTint="@color/white"/>
-
+            app:iconTint="@android:color/black" />
+        <!-- Botão de próximo -->
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/nextBtnPA"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:icon="@drawable/next_icon"
@@ -98,32 +110,72 @@
             android:backgroundTint="@color/white"/>
 
     </LinearLayout>
-    
+
+    <!-- Terceira linha -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="25dp"
         android:orientation="horizontal"
-        android:layout_margin="15sp">
-
+        android:layout_margin="15sp"
+        android:layout_weight="1">
+        <!-- Tempo atual da música -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:textColor="@color/black"
             android:textSize="15sp"
-            android:text="@string/start_tv"/>
-        
+            android:text="@string/start_tv"
+            android:gravity="center"/>
+        <!-- Barra de tepo da música -->
         <androidx.appcompat.widget.AppCompatSeekBar
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"/>
-        
+        <!-- Tempo total da música -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:textColor="@color/black"
             android:textSize="15sp"
-            android:text="@string/end_tv">
-        
+            android:text="@string/end_tv"
+            android:gravity="center"/>
+
+    </LinearLayout>
+    <!-- Quarta linha -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_weight="1">
+        <!-- Botão de repetir -->
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/repeat_btn"
+            android:src="@drawable/repeat_icon"
+            app:tint="@android:color/black"
+            android:layout_weight="1"
+            tools:ignore="NestedWeights" />
+        <!-- Botão do equalizador -->
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/equalizer_btn"
+            android:src="@drawable/equalizer_icon"
+            app:tint="@android:color/black"
+            android:layout_weight="1"/>
+        <!-- Botão de compartilhar -->
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/share_btn"
+            android:src="@drawable/share_icon"
+            app:tint="@android:color/black"
+            android:layout_weight="1"/>
+
     </LinearLayout>
 
 </LinearLayout>

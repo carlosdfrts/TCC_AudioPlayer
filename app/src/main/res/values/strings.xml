@@ -9,5 +9,17 @@
     <string name="song_name">nome da música</string>
     <string name="back_btn">Voltar</string>
     <string name="start_tv">00:00</string>
-    <string name="end_tv">Loading...</string>
+    <string name="end_tv">Loading</string>
+    <string name="repeat_btn">Repetir</string>
+    <string name="equalizer_btn">Equalizador</string>
+    <string name="share_btn">Compartilhar</string>
+    <string name="close">Close</string>
+    <string name="open">Open</string>
+    <string name="app_icon">Icon</string>
+    <string name="text_nav">Boas vindas ao\nKofy</string>
+    <string name="feedback">Feedback</string>
+    <string name="settings">Configurações</string>
+    <string name="about">Sobre</string>
+    <string name="exit">Sair</string>
+    <string name="song_album">Álbum</string>
 </resources>
