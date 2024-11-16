@@ -7,8 +7,9 @@
         tools:ignore="ScopedStorage" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
         android:maxSdkVersion="32" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"
-        android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
 
     <application
         android:name=".ApplicationClass"
@@ -22,21 +23,25 @@
         android:supportsRtl="true"
         android:theme="@style/splash_screen"
         tools:targetApi="31">
+
         <activity
             android:name=".PlaylistActivity"
             android:exported="false"
             android:screenOrientation="fullSensor"
             tools:ignore="DiscouragedApi" />
+
         <activity
             android:name=".FavouriteActivity"
             android:exported="false"
             android:screenOrientation="fullSensor"
             tools:ignore="DiscouragedApi"/>
+
         <activity
             android:name=".PlayerActivity"
             android:exported="false"
             android:screenOrientation="fullSensor"
             tools:ignore="DiscouragedApi"/>
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -44,11 +49,16 @@
             tools:ignore="DiscouragedApi">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <service android:name=".MusicService"/>
+
+        <service
+            android:name=".MusicService"
+            android:foregroundServiceType="mediaPlayback"
+            android:exported="false" />
+        <receiver android:name=".NotificationReceiver"
+            android:enabled="true"/>
     </application>
 
 </manifest>

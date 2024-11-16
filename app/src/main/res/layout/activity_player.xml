@@ -18,8 +18,9 @@
         android:layout_weight="1">
         <!-- Botão de voltar -->
         <ImageButton
+            android:id="@+id/backBtnPA"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
             android:background="@android:color/transparent"
@@ -40,15 +41,15 @@
             tools:ignore="NestedWeights" />
         <!-- Botão de favorito -->
         <ImageButton
+            android:id="@+id/favouriteBtnPA"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
-            android:layout_marginEnd="5dp"
+            android:layout_marginEnd="15dp"
             android:background="@android:color/transparent"
             android:contentDescription="@string/favourites_button"
-            android:src="@drawable/heart_favorite_icon"
-            app:tint="@android:color/holo_red_dark" />
+            android:src="@drawable/favourite_empty_icon" />
 
     </LinearLayout>
     <!-- Imagem do app/música -->
@@ -120,6 +121,7 @@
         android:layout_weight="1">
         <!-- Tempo atual da música -->
         <TextView
+            android:id="@+id/tvSeekBarStart"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:textColor="@color/black"
@@ -128,11 +130,14 @@
             android:gravity="center"/>
         <!-- Barra de tepo da música -->
         <androidx.appcompat.widget.AppCompatSeekBar
+            android:id="@+id/seekBarPA"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            tools:ignore="NestedWeights" />
         <!-- Tempo total da música -->
         <TextView
+            android:id="@+id/tvSeekBarEnd"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:textColor="@color/black"
@@ -149,6 +154,7 @@
         android:layout_weight="1">
         <!-- Botão de repetir -->
         <ImageButton
+            android:id="@+id/repeatBtnPA"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
@@ -157,17 +163,9 @@
             app:tint="@android:color/black"
             android:layout_weight="1"
             tools:ignore="NestedWeights" />
-        <!-- Botão do equalizador -->
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:contentDescription="@string/equalizer_btn"
-            android:src="@drawable/equalizer_icon"
-            app:tint="@android:color/black"
-            android:layout_weight="1"/>
         <!-- Botão de compartilhar -->
         <ImageButton
+            android:id="@+id/shareBtnPA"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"

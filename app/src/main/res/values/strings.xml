@@ -22,4 +22,5 @@
     <string name="about">Sobre</string>
     <string name="exit">Sair</string>
     <string name="song_album">Álbum</string>
+    <string name="search_view">Pesquisa</string>
 </resources>

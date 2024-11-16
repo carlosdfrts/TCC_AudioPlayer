@@ -73,7 +73,8 @@
                 android:contentDescription="@string/shuffle_button"
                 android:drawableTop="@drawable/shuffle_icon"
                 android:text="@string/shuffle_button"
-                android:textSize="11sp" />
+                android:textSize="10sp"
+                tools:ignore="SmallSp" />
 
             <Button
                 android:id="@+id/playlistBtn"
@@ -84,7 +85,8 @@
                 android:contentDescription="@string/playlist_button"
                 android:drawableTop="@drawable/playlist_icon"
                 android:text="@string/playlist_button"
-                android:textSize="11sp" />
+                android:textSize="10sp"
+                tools:ignore="SmallSp" />
 
             <Button
                 android:id="@+id/favouriteBtn"
@@ -93,9 +95,10 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:contentDescription="@string/favourites_button"
-                android:drawableTop="@drawable/favourite_icon"
+                android:drawableTop="@drawable/favourite_icon_main"
                 android:text="@string/favourites_button"
-                android:textSize="11sp" />
+                android:textSize="10sp"
+                tools:ignore="SmallSp" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 

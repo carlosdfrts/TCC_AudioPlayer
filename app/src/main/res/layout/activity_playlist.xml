@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    tools:context=".PlaylistActivity">
+    tools:context=".PlaylistActivity"
+    android:background="@color/white">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -19,8 +20,9 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageButton
+            android:id="@+id/backBtnPLA"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             android:backgroundTint="@android:color/transparent"
             android:contentDescription="@string/back_btn"
             android:src="@drawable/back_icon"

@@ -1,26 +1,32 @@
 package com.example.kofy
 
 import android.annotation.SuppressLint
+import android.app.Service
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
+import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kofy.databinding.ActivityMainBinding
+import com.google.gson.GsonBuilder
+import com.google.gson.reflect.TypeToken
 import java.io.File
 import kotlin.system.exitProcess
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding  // Usa o view binding para acessar as views da activity.
@@ -29,11 +35,22 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         lateinit var MusicListMA: ArrayList<Music>  // Lista de músicas que será preenchida.
+        lateinit var musicListSearch : ArrayList<Music>
+        var search: Boolean = false
     }
     @RequiresApi(Build.VERSION_CODES.R)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initializeLayout()
+        // Armazenar favoritas permanentes
+        FavouriteActivity.favouriteSongs = ArrayList()
+        val editor = getSharedPreferences("FAVOURITES", MODE_PRIVATE)
+        val jsonString = editor.getString("FavouriteSongs", null)
+        val typeToken = object : TypeToken<ArrayList<Music>>(){}.type
+        if (jsonString != null) {
+            val data : ArrayList<Music> = GsonBuilder().create().fromJson(jsonString, typeToken)
+            FavouriteActivity.favouriteSongs.addAll(data)
+        }
 
         // Configura a UI para ser adaptável a diferentes layouts de tela com o edge-to-edge
         enableEdgeToEdge()
@@ -58,7 +75,7 @@ class MainActivity : AppCompatActivity() {
 
         // Botão de favoritos
         binding.favouriteBtn.setOnClickListener {
-            startActivity(Intent(this@MainActivity, PlayerActivity::class.java))  // Navega para o player
+            startActivity(Intent(this@MainActivity, FavouriteActivity::class.java))  // Abre a tela de favoritos
         }
 
         // Botão de playlists
@@ -116,6 +133,7 @@ class MainActivity : AppCompatActivity() {
 
     @SuppressLint("SetTextI18n")
     private fun initializeLayout() {
+        search = false
         binding = ActivityMainBinding.inflate(layoutInflater)
         setTheme(R.style.Theme_Kofy)
         setContentView(binding.root)
@@ -194,5 +212,46 @@ class MainActivity : AppCompatActivity() {
         musicAdapter = MusicAdapter(this@MainActivity, MusicListMA)
         binding.songsRecyclerView.adapter = musicAdapter
         binding.totalSongsTextView.text = "Músicas Totais: ${musicAdapter.itemCount}"
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        if(!PlayerActivity.isPlaying && PlayerActivity.musicService != null) {
+            PlayerActivity.musicService!!.stopForeground(Service.STOP_FOREGROUND_REMOVE)
+            PlayerActivity.musicService!!.mediaPlayer!!.release()
+            PlayerActivity.musicService = null
+            exitProcess(1)
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // Armazenar músicas favoritas
+        val editor = getSharedPreferences("FAVOURITES", MODE_PRIVATE).edit()
+        val jsonString = GsonBuilder().create().toJson(FavouriteActivity.favouriteSongs)
+        editor.putString("FavouriteSongs", jsonString)
+        editor.apply()
+    }
+
+    @SuppressLint("SuspiciousIndentation")
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.search_view_menu, menu)
+        val searchView = menu?.findItem(R.id.searchView)?.actionView as SearchView
+            searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+                override fun onQueryTextSubmit(query: String?): Boolean = true
+                override fun onQueryTextChange(newText: String?): Boolean {
+                    musicListSearch = ArrayList()
+                    if (newText != null) {
+                        val userInput = newText.lowercase()
+                        for (song in MusicListMA)
+                            if (song.title.lowercase().contains(userInput))
+                                musicListSearch.add(song)
+                        search = true
+                        musicAdapter.updateMusicList(searchList = musicListSearch)
+                    }
+                    return true
+                }
+            })
+        return super.onCreateOptionsMenu(menu)
     }
 }

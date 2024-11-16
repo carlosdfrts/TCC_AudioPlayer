@@ -27,6 +27,10 @@ class PlaylistActivity : AppCompatActivity() {
         // Ativa a funcionalidade de borda a borda (Edge-to-Edge) para layout
         enableEdgeToEdge()
 
+        binding.backBtnPLA.setOnClickListener {
+            finish()
+        }
+
         // Sobrescreve o setContentView para garantir que o layout correto seja exibido
         setContentView(R.layout.activity_playlist)
 

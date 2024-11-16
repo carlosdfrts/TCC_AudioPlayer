@@ -52,5 +52,6 @@ dependencies {
     //Glide
     implementation("com.github.bumptech.glide:glide:4.12.0")
     kapt("com.github.bumptech.glide:compiler:4.12.0")
-    implementation("androidx.media:media:1.3.1")
+    implementation("androidx.media:media:1.7.0")
+    implementation("com.google.code.gson:gson:2.10.1")
 }
