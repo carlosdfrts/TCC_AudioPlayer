@@ -8,6 +8,9 @@ Este trabalho propõe o desenvolvimento de um aplicativo para dispositivos Andro
 - **Execução de músicas**: Permite a reprodução direta dos arquivos de música encontrados.
 - **Organização centralizada**: Proporciona uma interface centralizada para fácil gerenciamento das músicas.
 
+- <img width="504" height="355" alt="image" src="https://github.com/user-attachments/assets/6fc65255-5841-426c-88f0-ca1eadfbef4f" />
+
+
 ## Tecnologias Utilizadas
 - **Android Studio**
 - **Java/Kotlin**
