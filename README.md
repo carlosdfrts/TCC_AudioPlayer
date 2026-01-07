@@ -3,12 +3,15 @@
 ## Resumo
 Este trabalho propõe o desenvolvimento de um aplicativo para dispositivos Android que facilita a busca e organização de músicas armazenadas localmente. O aplicativo localiza arquivos de áudio dispersos em diferentes pastas, permite sua execução e oferece uma interface centralizada para gerenciamento. A solução visa proporcionar aos usuários uma maneira prática e intuitiva de acessar e organizar suas músicas, melhorando a experiência de uso e simplificando o controle dos arquivos de mídia.
 
+<img width="527" height="455" alt="image" src="https://github.com/user-attachments/assets/0b16ac96-e3ab-4475-9a64-ca5f85034c32" />
+
+
 ## Funcionalidades
 - **Busca de músicas**: Localiza arquivos de música armazenados em várias pastas do dispositivo.
 - **Execução de músicas**: Permite a reprodução direta dos arquivos de música encontrados.
 - **Organização centralizada**: Proporciona uma interface centralizada para fácil gerenciamento das músicas.
 
-- <img width="504" height="355" alt="image" src="https://github.com/user-attachments/assets/6fc65255-5841-426c-88f0-ca1eadfbef4f" />
+  <img width="504" height="355" alt="image" src="https://github.com/user-attachments/assets/6fc65255-5841-426c-88f0-ca1eadfbef4f" />
 
 
 ## Tecnologias Utilizadas
